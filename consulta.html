@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="JS/funciones.js"></script>
+
+    <title>Consultas</title>
+  </head>
+  <body onload="TraerCategorias(); TraerCabinClient(); TraerCabinClient2()">
+    <section class="modulo">
+      <nav class="opciones mod">
+        <a href="index.html">Inicio</a>
+        <a href="RegistroCabin.html">Registrar Cabañas</a>
+        <a href="RegistroCategoria.html">Registrar Categoria</a>
+        <a href="RegistroClient.html">Registrar Cliente</a>
+        <a href="RegistroMensaje.html">Registrar Mensajes</a>
+        <a href="RegistroAdmin.html">Registrar Administrador</a>
+        <a href="RegistroReserva.html">Registrar Reserva</a>
+      </nav>
+      <div class="titulomodulo">
+        <h1>Consultas</h1>
+      </div>
+      <fieldset class="frameform" id="ConsultaForm">
+        <legend>Datos Consulta</legend>
+        <form class="contenedorformulario" action="">
+          <p class="Etiqueta">SERVICIO</p>
+          <select class="drop" name="" id="servicio">
+            <option value="">Cabaña</option>
+            <option value="">Cliente</option>
+            <option value="">Mensaje</option>
+            <option value="">Reservacion</option>
+            <option value="">Administrador</option>
+            <option value="">Categoria</option>
+          </select>
+          <input
+            onclick="buscar()"
+            class="boton"
+            type="button"
+            value="Seleccionar todo"
+          />
+        </form>
+      </fieldset>
+
+      <div id="EditCabin" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Cabaña</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input name="id1" type="text" id="id1" class="field" required />
+            <p class="Etiqueta">BRAND</p>
+            <input type="text" id="brand1" class="field" required />
+            <p class="Etiqueta">ROOMS</p>
+            <input type="number" id="rooms1" class="field" required />
+            <p class="Etiqueta">CATEGORY ID</p>
+            <select name="categorias" id="category_id"></select>
+            <p class="Etiqueta">NAME</p>
+            <input type="text" id="name1" class="field" required />
+            <p class="Etiqueta">DESCRIPCION</p>
+            <input type="text" id="descripcion1" class="field" required />
+            <input
+              onclick="GuardarCabin()"
+              class="boton"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div id="EditClient" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Cliente</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input type="text" id="id2" class="field" required />
+            <p class="Etiqueta">NAME</p>
+            <input type="text" id="name2" class="field" required />
+            <p class="Etiqueta">EMAIL</p>
+            <input type="text" id="email2" class="field" required />
+            <p class="Etiqueta">AGE</p>
+            <input type="number" id="age2" class="field" required />
+            <input type="number" id="password" class="field" required />
+            <input
+              class="boton"
+              onclick="GuardarClient()"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div id="EditMensj" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Mensaje</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input type="text" id="id3" class="field" required />
+            <p class="Etiqueta">CLIENTE</p>
+            <select name="cliente" id="IdClient2"></select>
+            <p class="Etiqueta">CABAÑA</p>
+            <select name="Cabin" id="IdCabin2"></select>
+            <p class="Etiqueta mens">MESSAGETEXT</p>
+            <textarea
+              class="Mensaje"
+              name=""
+              id="messagetext"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <input
+              onclick="GuardarMensaje()"
+              class="boton"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div id="EditCateg" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Categoria</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input type="text" id="id4" class="field" required />
+            <p class="Etiqueta">NOMBRE</p>
+            <input type="text" id="name3" class="field" required />
+            <p class="Etiqueta mens">DESCRIPCION</p>
+            <textarea
+              class="Mensaje"
+              name=""
+              id="description"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <input
+              onclick="GuardarCategoria()"
+              class="boton"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div id="EditReserv" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Reserva</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input type="text" id="id5" class="field" required />
+            <p class="Etiqueta">CLIENTE</p>
+            <select name="cliente" id="IdClient"></select>
+            <p class="Etiqueta">CABAÑA</p>
+            <select name="Cabin" id="IdCabin"></select>
+            <p class="Etiqueta">DIA INICIO</p>
+            <input type="date" id="startDate" class="field" required />
+            <p class="Etiqueta">DIA DEVOLUCION</p>
+            <input type="date" id="devolutionDate" class="field" required />
+            <p class="Etiqueta">ESTADO</p>
+            <select name="status" id="status">
+              <option value="completed">Completada</option>
+              <option value="cancelled">Cancelada</option>
+            </select>
+            <input
+              onclick="GuardarReserva()"
+              class="boton"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div id="EditAdmin" style="display: none">
+        <fieldset class="frameform">
+          <legend>Datos Administrador</legend>
+          <form class="contenedorformulario" action="">
+            <p class="Etiqueta">ID</p>
+            <input type="text" id="id6" class="field" required />
+            <p class="Etiqueta">NAME</p>
+            <input type="text" id="name6" class="field" required />
+            <p class="Etiqueta">EMAIL</p>
+            <input type="text" id="email5" class="field" required />
+            <input
+              class="boton"
+              onclick="GuardarAdmin()"
+              type="button"
+              value="Guardar"
+            />
+          </form>
+        </fieldset>
+      </div>
+      <div class="Tabloide" id="Tabla"></div>
+      <div id="Resultado" class="titulomodulo"></div>
+    </section>
+    <script src="JS/funciones.js"></script>
+  </body>
+</html>

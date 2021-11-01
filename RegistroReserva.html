@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="JS/funciones.js"></script>
+    <title>Registro Cliente</title>
+  </head>
+  <body onload="TraerCabinClient()">
+    <section class="modulo">
+      <nav class="opciones mod">
+        <a href="index.html">Inicio</a>
+        <a href="RegistroCabin.html">Registrar Cabañas</a>
+          <a href="RegistroCategoria.html">Registrar Categoria</a>
+          <a href="RegistroClient.html">Registrar Cliente</a>
+          <a href="RegistroMensaje.html">Registrar Mensajes</a>
+          <a href="RegistroAdmin.html">Registrar Administrador</a>
+          <a href="consulta.html">Consultas</a>
+      </nav>
+      <div class="titulomodulo">
+        <h1>Registrar reserva</h1>
+      </div>
+      <fieldset class="frameform">
+        <legend>Datos reserva</legend>
+        <form class="contenedorformulario" action="">
+          <p class="Etiqueta">DIA INICIO</p>
+          <input type="date" id="startDate" class="field" required />
+          <p class="Etiqueta">DIA DEVOLUCION</p>
+          <input type="date" id="devolutionDate" class="field" required />
+          <p class="Etiqueta">CLIENTE</p>
+          <select name="cliente" id="IdClient"></select>
+          <p class="Etiqueta">CABAÑA</p>
+          <select name="Cabin" id="IdCabin"></select>
+          <p class="Etiqueta">ESTADO</p>
+          <select name="status" id="status">
+            <option value="completed">Completada</option>
+            <option value="cancelled">Cancelada</option>
+          </select>
+          <input class="boton" onclick="EnviarReserva()" type="button" value="Registrar">
+        </form>
+      </fieldset>
+    </section>
+  </body>
+</html>

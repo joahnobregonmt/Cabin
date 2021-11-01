@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
+    <title>Registro Cabaña</title>
+  </head>
+  <body onload="TraerCategorias()">
+    <section class="modulo">
+      <nav class="opciones mod">
+        <a href="index.html">Inicio</a>
+        <a href="RegistroCategoria.html">Registrar Categoria</a>
+        <a href="RegistroClient.html">Registrar Cliente</a>
+        <a href="RegistroMensaje.html">Registrar Mensajes</a>
+        <a href="RegistroAdmin.html">Registrar Administrador</a>
+        <a href="RegistroReserva.html">Registrar Reserva</a>
+        <a href="consulta.html">Consultas</a>
+      </nav>
+      <div class="titulomodulo">
+        <h1>Registrar cabaña</h1>
+      </div>
+      <fieldset class="frameform">
+        <legend>Datos cabaña</legend>
+        <form class="contenedorformulario" action="">
+          <p class="Etiqueta">BRAND</p>
+          <input type="text" id="brand" class="field" required />
+          <p class="Etiqueta">ROOMS</p>
+          <input type="number" id="rooms" class="field" required />
+          <p class="Etiqueta">CATEGORY ID</p>
+          <select name="categirias" id="category_id"></select>
+          <p class="Etiqueta">NAME</p>
+          <input type="text" id="name" class="field" required/>
+          <p class="Etiqueta mens">DESCRIPCION</p>
+          <textarea class="Mensaje" name="" id="messagetext" cols="30" rows="10"></textarea>
+          <input onclick="EnviarCabin()" class="boton" type="button" value="Registrar">
+        </form>
+      </fieldset>
+    </section>
+    <script src="JS/funciones.js"></script>
+  </body>
+</html>

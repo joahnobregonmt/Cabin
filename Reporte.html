@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="JS/funciones.js"></script>
+    <title>Registro Cliente</title>
+  </head>
+  <body>
+    <section class="modulo">
+      <nav class="opciones mod">
+        <a href="index.html">Inicio</a>
+        <a href="RegistroCabin.html">Registrar Cabañas</a>
+        <a href="RegistroCategoria.html">Registrar Categoria</a>
+        <a href="RegistroClient.html">Registrar Cliente</a>
+        <a href="RegistroMensaje.html">Registrar Mensajes</a>
+        <a href="RegistroAdmin.html">Registrar Administrador</a>
+        <a href="consulta.html">Consultas</a>
+      </nav>
+      <div class="titulomodulo">
+        <h1>Reporte Cabañas</h1>
+      </div>
+      <fieldset class="frameform">
+        <legend>Reporte</legend>
+        <form class="contenedorformulario" action="">
+          <p class="Etiqueta">FECHA INICIAL</p>
+          <input type="date" id="startDate" class="field" required />
+          <p class="Etiqueta">FECHA FINAL</p>
+          <input type="date" id="devolutionDate" class="field" required />
+          <input
+            class="boton"
+            onclick="ReporteClientes()"
+            type="button"
+            value="Reservas clientes"
+          />
+          <input
+            class="boton"
+            onclick="ReporteStatus()"
+            type="button"
+            value="Estatus reservas"
+          />
+          <input
+            class="boton"
+            onclick="ReporteFechas()"
+            type="button"
+            value="Reporte fechas"
+          />
+        </form>
+      </fieldset>
+
+      <div id="ReportStatus" style="display: none">
+        <fieldset class="frameform report">
+          <legend>Estatus reservas</legend>
+          <form class="contenedorformulario" action="">
+            <p style="text-align: center" class="Etiqueta">CANCELADAS</p>
+            <p style="text-align: center" class="Etiqueta" id="cancela"></p>
+            <p style="text-align: center" class="Etiqueta">COMPLETADAS</p>
+            <p style="text-align: center" class="Etiqueta" id="completa"></p>
+          </form>
+        </fieldset>
+      </div>
+
+      <div id="ReportCliente" style="display: none">
+        <fieldset class="frameform report">
+          <legend>Reporte cliente</legend>
+          <form class="contenedorformulario" action="">
+            <div id="DatosClientes"></div>
+          </form>
+        </fieldset>
+      </div>
+
+      <div id="ReportFecha" style="display: none">
+        <fieldset class="frameform report">
+          <legend>Reporte Fecha</legend>
+          <form class="contenedorformulario" action="">
+            <div id="DatosFechas"></div>
+          </form>
+        </fieldset>
+      </div>
+    </section>
+  </body>
+</html>

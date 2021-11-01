@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="JS/funciones.js"></script>
+    <title>Registro Cliente</title>
+  </head>
+  <body>
+    <section class="modulo">
+      <nav class="opciones mod">
+        <a href="index.html">Inicio</a>
+        <a href="RegistroCabin.html">Registrar Cabañas</a>
+        <a href="RegistroCategoria.html">Registrar Categoria</a>
+        <a href="RegistroMensaje.html">Registrar Mensajes</a>
+        <a href="RegistroAdmin.html">Registrar Administrador</a>
+        <a href="RegistroReserva.html">Registrar Reserva</a>
+        <a href="consulta.html">Consultas</a>
+      </nav>
+      <div class="titulomodulo">
+        <h1>Registrar cliente</h1>
+      </div>
+      <fieldset class="frameform">
+        <legend>Datos Cliente</legend>
+        <form class="contenedorformulario" action="">
+          <p class="Etiqueta">NAME</p>
+          <input type="text" id="name" class="field" required />
+          <p class="Etiqueta">EMAIL</p>
+          <input type="text" id="email" class="field" required />
+          <p class="Etiqueta">PASSWORD</p>
+          <input type="text" id="password" class="field" required />
+          <p class="Etiqueta">AGE</p>
+          <input type="number" id="age" class="field" required />
+          <input class="boton" onclick="EnviarClient()" type="button" value="Registrar">
+        </form>
+      </fieldset>
+    </section>
+  </body>
+</html>
